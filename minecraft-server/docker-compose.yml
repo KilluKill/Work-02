@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: minecraft_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: minecraft_server
+      MYSQL_USER: minecraft
+      MYSQL_PASSWORD: minecraft_password_2024
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+
+  website:
+    build: ./website
+    container_name: minecraft_website
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      DB_HOST: mysql
+      DB_USER: minecraft
+      DB_PASSWORD: minecraft_password_2024
+      DB_NAME: minecraft_server
+      SESSION_SECRET: minecraft_secret_key_2024
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+    volumes:
+      - ./website:/app
+    restart: unless-stopped
+
+  minecraft:
+    image: openjdk:21-jdk
+    container_name: minecraft_server
+    working_dir: /server
+    command: java -Xmx4G -Xms2G -jar paper-1.21.8.jar nogui
+    ports:
+      - "25565:25565"
+      - "25575:25575"
+    volumes:
+      - ./server:/server
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
