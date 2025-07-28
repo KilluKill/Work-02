@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title + ' - ' : '' %>Крутой Minecraft Сервер 1.21.8</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- Minecraft Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <meta name="description" content="Лучший Minecraft сервер 1.21.8 с донат-магазином, мини-играми, ПВП и множеством плагинов!">
+    <meta name="keywords" content="minecraft, сервер, донат, 1.21.8, пвп, мини-игры, плагины">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="fas fa-cube me-2"></i>
+                <span class="minecraft-font">CraftServer</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-home me-1"></i>Главная
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/shop">
+                            <i class="fas fa-shopping-cart me-1"></i>Донат-магазин
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-gamepad me-1"></i>Игра
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#rules">Правила</a></li>
+                            <li><a class="dropdown-item" href="#commands">Команды</a></li>
+                            <li><a class="dropdown-item" href="#worlds">Миры</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#discord">Discord</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <!-- Server Status -->
+                <div class="navbar-text me-3" id="server-status">
+                    <span class="badge bg-success">
+                        <i class="fas fa-circle me-1"></i>
+                        <span id="online-count">0</span> онлайн
+                    </span>
+                </div>
+                
+                <!-- User Menu -->
+                <ul class="navbar-nav">
+                    <% if (typeof user !== 'undefined' && user) { %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-user me-1"></i><%= user.username %>
+                                <% if (user.role === 'admin') { %>
+                                    <span class="badge bg-danger ms-1">ADMIN</span>
+                                <% } else if (user.role === 'vip') { %>
+                                    <span class="badge bg-warning ms-1">VIP</span>
+                                <% } %>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="/profile">
+                                    <i class="fas fa-user-circle me-2"></i>Профиль
+                                </a></li>
+                                <li><a class="dropdown-item" href="/shop">
+                                    <i class="fas fa-shopping-bag me-2"></i>Мои покупки
+                                </a></li>
+                                <% if (user.role === 'admin') { %>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/admin">
+                                        <i class="fas fa-cogs me-2"></i>Админ-панель
+                                    </a></li>
+                                <% } %>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#" onclick="logout()">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Выход
+                                </a></li>
+                            </ul>
+                        </li>
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">
+                                <i class="fas fa-sign-in-alt me-1"></i>Вход
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">
+                                <i class="fas fa-user-plus me-1"></i>Регистрация
+                            </a>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>

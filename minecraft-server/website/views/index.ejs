@@ -1,0 +1,442 @@
+<%- include('partials/header', { title: 'Главная' }) %>
+
+<!-- Hero Section -->
+<section class="hero-section bg-gradient-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center min-vh-50">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4 minecraft-font">
+                    🎮 Крутой Minecraft Сервер
+                </h1>
+                <p class="lead mb-4">
+                    Присоединяйся к лучшему серверу Minecraft 1.21.8! 
+                    Уникальные плагины, донат-магазин, мини-игры, ПВП арены и дружелюбное сообщество ждут тебя!
+                </p>
+                <div class="hero-stats mb-4">
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <h3 class="fw-bold mb-0" id="hero-online"><%= stats.online_players %></h3>
+                                <small>Онлайн</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <h3 class="fw-bold mb-0"><%= stats.total_players %></h3>
+                                <small>Игроков</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <h3 class="fw-bold mb-0"><%= stats.uptime %></h3>
+                                <small>Аптайм</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn btn-light btn-lg me-3" onclick="copyIP()">
+                        <i class="fas fa-copy me-2"></i>Копировать IP
+                    </button>
+                    <a href="/shop" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-shopping-cart me-2"></i>Донат-магазин
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="hero-image">
+                    <div class="minecraft-server-preview">
+                        <div class="server-block animate-float">
+                            <i class="fas fa-cube fa-5x text-warning"></i>
+                        </div>
+                        <div class="server-info mt-3">
+                            <div class="badge bg-success fs-6 mb-2">
+                                <i class="fas fa-circle me-1"></i>Сервер онлайн
+                            </div>
+                            <p class="mb-0">play.craftserver.ru:25565</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="display-5 fw-bold mb-3">🌟 Особенности сервера</h2>
+                <p class="lead text-muted">Откройте для себя уникальные возможности нашего сервера</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card h-100 text-center p-4 border rounded-3 shadow-sm">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-shield-alt fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="fw-bold">Система авторизации</h5>
+                    <p class="text-muted">Защищенная регистрация и авторизация с помощью AuthMe. Ваши данные в безопасности!</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="feature-card h-100 text-center p-4 border rounded-3 shadow-sm">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-shopping-cart fa-3x text-success"></i>
+                    </div>
+                    <h5 class="fw-bold">Донат-магазин</h5>
+                    <p class="text-muted">Удобный веб-магазин с VIP статусами, игровой валютой, кейсами и привилегиями.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="feature-card h-100 text-center p-4 border rounded-3 shadow-sm">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-gamepad fa-3x text-warning"></i>
+                    </div>
+                    <h5 class="fw-bold">Мини-игры</h5>
+                    <p class="text-muted">Паркур, дуэли, казино, арены ПВП и множество других развлечений для игроков.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="feature-card h-100 text-center p-4 border rounded-3 shadow-sm">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-tools fa-3x text-info"></i>
+                    </div>
+                    <h5 class="fw-bold">Креативные плагины</h5>
+                    <p class="text-muted">WorldEdit, WorldGuard, кастомные крафты и множество инструментов для творчества.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="feature-card h-100 text-center p-4 border rounded-3 shadow-sm">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-crown fa-3x text-danger"></i>
+                    </div>
+                    <h5 class="fw-bold">VIP привилегии</h5>
+                    <p class="text-muted">Эксклюзивные возможности для VIP игроков: полет, дополнительные дома, особые команды.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="feature-card h-100 text-center p-4 border rounded-3 shadow-sm">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-users fa-3x text-purple"></i>
+                    </div>
+                    <h5 class="fw-bold">Сообщество</h5>
+                    <p class="text-muted">Дружелюбные игроки, активная администрация и поддержка 24/7 в Discord.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Server Stats Section -->
+<section class="stats-section bg-light py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12 mb-5">
+                <h2 class="display-5 fw-bold mb-3">📊 Статистика сервера</h2>
+                <p class="lead text-muted">Актуальная информация о нашем сервере</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card text-center p-4 bg-white rounded-3 shadow-sm h-100">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-users fa-2x text-primary"></i>
+                    </div>
+                    <h3 class="fw-bold text-primary mb-1" id="stat-online"><%= stats.online_players %></h3>
+                    <p class="text-muted mb-0">Игроков онлайн</p>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card text-center p-4 bg-white rounded-3 shadow-sm h-100">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-chart-line fa-2x text-success"></i>
+                    </div>
+                    <h3 class="fw-bold text-success mb-1"><%= stats.total_players %></h3>
+                    <p class="text-muted mb-0">Всего игроков</p>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card text-center p-4 bg-white rounded-3 shadow-sm h-100">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-server fa-2x text-warning"></i>
+                    </div>
+                    <h3 class="fw-bold text-warning mb-1"><%= stats.uptime %></h3>
+                    <p class="text-muted mb-0">Аптайм сервера</p>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card text-center p-4 bg-white rounded-3 shadow-sm h-100">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-code-branch fa-2x text-info"></i>
+                    </div>
+                    <h3 class="fw-bold text-info mb-1"><%= stats.server_version %></h3>
+                    <p class="text-muted mb-0">Версия сервера</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popular Items Section -->
+<section class="popular-items-section py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="display-5 fw-bold mb-3">🔥 Популярные товары</h2>
+                <p class="lead text-muted">Самые востребованные предметы в нашем донат-магазине</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="product-card h-100 border rounded-3 shadow-sm overflow-hidden">
+                    <div class="product-header bg-warning text-dark p-3 text-center">
+                        <i class="fas fa-crown fa-2x mb-2"></i>
+                        <h5 class="fw-bold mb-0">VIP Статус</h5>
+                    </div>
+                    <div class="product-body p-4">
+                        <ul class="list-unstyled mb-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Полет на выживании</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Дополнительные дома</li>
+                            <li><i class="fas fa-check text-success me-2"></i>VIP чат</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Особые команды</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h5 fw-bold text-warning mb-0">199₽</span>
+                            <a href="/shop" class="btn btn-warning">Купить</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="product-card h-100 border rounded-3 shadow-sm overflow-hidden">
+                    <div class="product-header bg-success text-white p-3 text-center">
+                        <i class="fas fa-coins fa-2x mb-2"></i>
+                        <h5 class="fw-bold mb-0">1000 Монет</h5>
+                    </div>
+                    <div class="product-body p-4">
+                        <ul class="list-unstyled mb-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Игровая валюта</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Покупка предметов</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Торговля с игроками</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Мгновенная выдача</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h5 fw-bold text-success mb-0">99₽</span>
+                            <a href="/shop" class="btn btn-success">Купить</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="product-card h-100 border rounded-3 shadow-sm overflow-hidden">
+                    <div class="product-header bg-info text-white p-3 text-center">
+                        <i class="fas fa-gift fa-2x mb-2"></i>
+                        <h5 class="fw-bold mb-0">Донат Кейс</h5>
+                    </div>
+                    <div class="product-body p-4">
+                        <ul class="list-unstyled mb-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Случайные предметы</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Редкие ресурсы</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Эксклюзивные вещи</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Элемент удачи</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h5 fw-bold text-info mb-0">149₽</span>
+                            <a href="/shop" class="btn btn-info">Купить</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="/shop" class="btn btn-primary btn-lg">
+                <i class="fas fa-shopping-cart me-2"></i>Посетить донат-магазин
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- How to Connect Section -->
+<section class="connect-section bg-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="display-5 fw-bold mb-4">🚀 Как подключиться?</h2>
+                <div class="connection-steps">
+                    <div class="step mb-3">
+                        <div class="d-flex align-items-center">
+                            <div class="step-number bg-white text-primary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <strong>1</strong>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Откройте Minecraft</h6>
+                                <small class="opacity-75">Версия 1.21.8</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step mb-3">
+                        <div class="d-flex align-items-center">
+                            <div class="step-number bg-white text-primary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <strong>2</strong>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Добавьте сервер</h6>
+                                <small class="opacity-75">IP: play.craftserver.ru</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step mb-3">
+                        <div class="d-flex align-items-center">
+                            <div class="step-number bg-white text-primary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <strong>3</strong>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Подключитесь</h6>
+                                <small class="opacity-75">Зарегистрируйтесь на сервере</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 text-center">
+                <div class="server-ip-card bg-white text-dark p-4 rounded-3 shadow">
+                    <h5 class="fw-bold mb-3">IP адрес сервера</h5>
+                    <div class="ip-display bg-light p-3 rounded mb-3">
+                        <code class="fs-4 fw-bold">play.craftserver.ru:25565</code>
+                    </div>
+                    <button class="btn btn-primary" onclick="copyIP()">
+                        <i class="fas fa-copy me-2"></i>Копировать IP
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest News Section -->
+<section class="news-section py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="display-5 fw-bold mb-3">📰 Последние новости</h2>
+                <p class="lead text-muted">Будьте в курсе всех обновлений и событий</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="news-card h-100 border rounded-3 shadow-sm overflow-hidden">
+                    <div class="news-header bg-primary text-white p-3">
+                        <small>2024-01-15</small>
+                        <h6 class="fw-bold mb-0 mt-1">Обновление 1.21.8</h6>
+                    </div>
+                    <div class="news-body p-3">
+                        <p class="mb-3">Сервер обновлен до версии 1.21.8! Новые возможности, исправления багов и улучшения производительности.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Читать далее</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="news-card h-100 border rounded-3 shadow-sm overflow-hidden">
+                    <div class="news-header bg-success text-white p-3">
+                        <small>2024-01-10</small>
+                        <h6 class="fw-bold mb-0 mt-1">Новые мини-игры</h6>
+                    </div>
+                    <div class="news-body p-3">
+                        <p class="mb-3">Добавлены новые мини-игры: Bed Wars, Sky Wars и улучшенная система паркура с новыми уровнями сложности.</p>
+                        <a href="#" class="btn btn-outline-success btn-sm">Читать далее</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="news-card h-100 border rounded-3 shadow-sm overflow-hidden">
+                    <div class="news-header bg-warning text-dark p-3">
+                        <small>2024-01-05</small>
+                        <h6 class="fw-bold mb-0 mt-1">Скидки в донат-магазине</h6>
+                    </div>
+                    <div class="news-body p-3">
+                        <p class="mb-3">Новогодние скидки до 50% на все VIP статусы и донат товары! Акция действует до конца января.</p>
+                        <a href="/shop" class="btn btn-outline-warning btn-sm">В магазин</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 70vh;
+}
+
+.minecraft-font {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.text-purple {
+    color: #6f42c1 !important;
+}
+</style>
+
+<script>
+// Update stats in real-time
+socket.on('server-stats', (data) => {
+    document.getElementById('hero-online').textContent = data.online;
+    document.getElementById('stat-online').textContent = data.online;
+});
+</script>
+
+<%- include('partials/footer') %>
