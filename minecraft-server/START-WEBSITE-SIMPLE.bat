@@ -1,0 +1,39 @@
+@echo off
+title Minecraft Website (Simple Version)
+echo ========================================
+echo   ВЕБ-САЙТ БЕЗ БАЗЫ ДАННЫХ (ТЕСТОВЫЙ)
+echo ========================================
+echo.
+
+cd /d "%~dp0website"
+
+:: Проверка Node.js
+node --version >nul 2>&1
+if %errorlevel% neq 0 (
+    echo [ERROR] Node.js не найден!
+    echo Скачайте с https://nodejs.org/
+    pause
+    exit /b 1
+)
+
+:: Установка зависимостей если нужно
+if not exist "node_modules" (
+    echo [INFO] Установка npm пакетов...
+    npm install
+)
+
+echo [INFO] Запуск упрощенной версии веб-сайта...
+echo [INFO] Эта версия работает БЕЗ MySQL - только для тестирования
+echo [INFO] Сайт будет доступен по адресу: http://localhost:3000
+echo [INFO] Админ панель: http://localhost:3000/admin  
+echo [INFO] Логин: admin, Пароль: admin123
+echo [INFO] Для остановки нажмите Ctrl+C
+echo ========================================
+echo.
+
+:: Запуск упрощенной версии
+node server-simple.js
+
+echo.
+echo [INFO] Веб-сайт остановлен
+pause
