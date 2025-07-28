@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title + ' - ' : '' %>Крутой Minecraft Сервер 1.21.8</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- Minecraft Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <meta name="description" content="Лучший Minecraft сервер 1.21.8 с донат-магазином, мини-играми, ПВП и множеством плагинов!">
+    <meta name="keywords" content="minecraft, сервер, донат, 1.21.8, пвп, мини-игры, плагины">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="fas fa-cube me-2"></i>
+                <span class="minecraft-font">CraftServer</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-home me-1"></i>Главная
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/shop">
+                            <i class="fas fa-shopping-cart me-1"></i>Донат-магазин
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-gamepad me-1"></i>Игра
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#rules">Правила</a></li>
+                            <li><a class="dropdown-item" href="#commands">Команды</a></li>
+                            <li><a class="dropdown-item" href="#worlds">Миры</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#discord">Discord</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <!-- Server Status -->
+                <div class="navbar-text me-3" id="server-status">
+                    <span class="badge bg-success">
+                        <i class="fas fa-circle me-1"></i>
+                        <span id="online-count">0</span> онлайн
+                    </span>
+                </div>
+                
+                <!-- User Menu -->
+                <ul class="navbar-nav">
+                    <% if (typeof user !== 'undefined' && user) { %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-user me-1"></i><%= user.username %>
+                                <% if (user.role === 'admin') { %>
+                                    <span class="badge bg-danger ms-1">ADMIN</span>
+                                <% } else if (user.role === 'vip') { %>
+                                    <span class="badge bg-warning ms-1">VIP</span>
+                                <% } %>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="/profile">
+                                    <i class="fas fa-user-circle me-2"></i>Профиль
+                                </a></li>
+                                <li><a class="dropdown-item" href="/shop">
+                                    <i class="fas fa-shopping-bag me-2"></i>Мои покупки
+                                </a></li>
+                                <% if (user.role === 'admin') { %>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/admin">
+                                        <i class="fas fa-cogs me-2"></i>Админ-панель
+                                    </a></li>
+                                <% } %>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#" onclick="logout()">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Выход
+                                </a></li>
+                            </ul>
+                        </li>
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">
+                                <i class="fas fa-sign-in-alt me-1"></i>Вход
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">
+                                <i class="fas fa-user-plus me-1"></i>Регистрация
+                            </a>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <%- body %>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="minecraft-font mb-3">CraftServer</h5>
+                    <p>Лучший Minecraft сервер 1.21.8 с уникальными возможностями, донат-магазином и дружелюбным сообществом.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-discord fa-2x"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-youtube fa-2x"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-vk fa-2x"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h6>Навигация</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-light text-decoration-none">Главная</a></li>
+                        <li><a href="/shop" class="text-light text-decoration-none">Донат</a></li>
+                        <li><a href="#rules" class="text-light text-decoration-none">Правила</a></li>
+                        <li><a href="#commands" class="text-light text-decoration-none">Команды</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6>Подключение</h6>
+                    <p class="mb-1"><strong>IP:</strong> <code>play.craftserver.ru</code></p>
+                    <p class="mb-1"><strong>Порт:</strong> <code>25565</code></p>
+                    <p class="mb-1"><strong>Версия:</strong> <code>1.21.8</code></p>
+                    <button class="btn btn-outline-light btn-sm" onclick="copyIP()">
+                        <i class="fas fa-copy me-1"></i>Копировать IP
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <h6>Статистика</h6>
+                    <p class="mb-1">👥 Игроков онлайн: <span id="footer-online">0</span></p>
+                    <p class="mb-1">📊 Всего игроков: <span id="footer-total">0</span></p>
+                    <p class="mb-1">⏰ Аптайм: 99.9%</p>
+                    <p class="mb-1">🌟 Рейтинг: 5.0/5.0</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 CraftServer. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <small class="text-muted">
+                        Сделано с ❤️ для лучшего Minecraft опыта
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast" class="toast" role="alert">
+            <div class="toast-header">
+                <i class="fas fa-info-circle text-primary me-2"></i>
+                <strong class="me-auto">Уведомление</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body" id="toast-message">
+                <!-- Toast message will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+    <script src="/js/main.js"></script>
+    
+    <script>
+        // Socket.IO connection for real-time updates
+        const socket = io();
+        
+        socket.on('server-stats', (data) => {
+            document.getElementById('online-count').textContent = data.online;
+            document.getElementById('footer-online').textContent = data.online;
+        });
+
+        // Copy IP function
+        function copyIP() {
+            navigator.clipboard.writeText('play.craftserver.ru').then(() => {
+                showToast('IP адрес скопирован в буфер обмена!', 'success');
+            });
+        }
+
+        // Logout function
+        function logout() {
+            fetch('/logout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/';
+                }
+            });
+        }
+
+        // Toast notification function
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            
+            // Change toast style based on type
+            toast.className = `toast show border-${type === 'success' ? 'success' : type === 'error' ? 'danger' : 'info'}`;
+            
+            const bsToast = new bootstrap.Toast(toast);
+            bsToast.show();
+        }
+
+        // Load server status on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/api/server-status')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.online) {
+                        document.getElementById('online-count').textContent = data.players.online;
+                        document.getElementById('footer-online').textContent = data.players.online;
+                    }
+                })
+                .catch(error => console.error('Error loading server status:', error));
+        });
+    </script>
+</body>
+</html>

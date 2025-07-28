@@ -1,0 +1,486 @@
+<%- include('partials/header', { title: 'Донат-магазин' }) %>
+
+<!-- Shop Header -->
+<section class="shop-header bg-gradient-success text-white py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12">
+                <h1 class="display-4 fw-bold mb-3">
+                    <i class="fas fa-shopping-cart me-3"></i>Донат-магазин
+                </h1>
+                <p class="lead mb-4">
+                    Поддержите сервер и получите эксклюзивные возможности!
+                </p>
+                <% if (typeof user !== 'undefined' && user) { %>
+                    <div class="user-balance bg-white bg-opacity-20 rounded-3 p-3 d-inline-block">
+                        <h5 class="mb-0">
+                            <i class="fas fa-wallet me-2"></i>
+                            Баланс: <span class="fw-bold"><%= user.balance %>₽</span>
+                        </h5>
+                    </div>
+                <% } else { %>
+                    <div class="alert alert-warning d-inline-block">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <a href="/login" class="text-decoration-none fw-bold">Войдите</a> для покупки товаров
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Navigation -->
+<section class="categories-nav bg-light py-3 sticky-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-pills justify-content-center" id="shop-categories">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#ranks" data-bs-toggle="pill">
+                            <i class="fas fa-crown me-2"></i>VIP Статусы
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#currency" data-bs-toggle="pill">
+                            <i class="fas fa-coins me-2"></i>Валюта
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cases" data-bs-toggle="pill">
+                            <i class="fas fa-gift me-2"></i>Кейсы
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#privileges" data-bs-toggle="pill">
+                            <i class="fas fa-star me-2"></i>Привилегии
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#other" data-bs-toggle="pill">
+                            <i class="fas fa-box me-2"></i>Разное
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Shop Content -->
+<section class="shop-content py-5">
+    <div class="container">
+        <div class="tab-content" id="shop-content">
+            
+            <!-- VIP Ranks -->
+            <div class="tab-pane fade show active" id="ranks">
+                <div class="row text-center mb-4">
+                    <div class="col-12">
+                        <h2 class="fw-bold mb-3">👑 VIP Статусы</h2>
+                        <p class="text-muted">Получите эксклюзивные привилегии и возможности</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <% categories.rank.forEach(item => { %>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="product-card h-100 border rounded-3 shadow-sm position-relative overflow-hidden">
+                                <% if (item.name.includes('Elite')) { %>
+                                    <div class="ribbon bg-danger text-white">ПОПУЛЯРНО</div>
+                                <% } %>
+                                
+                                <div class="product-header bg-warning text-dark p-4 text-center">
+                                    <i class="fas fa-crown fa-3x mb-3"></i>
+                                    <h4 class="fw-bold mb-2"><%= item.name %></h4>
+                                    <p class="mb-0 opacity-75">30 дней привилегий</p>
+                                </div>
+                                
+                                <div class="product-body p-4">
+                                    <p class="text-muted mb-3"><%= item.description %></p>
+                                    
+                                    <div class="features mb-4">
+                                        <h6 class="fw-bold mb-2">Что входит:</h6>
+                                        <ul class="list-unstyled">
+                                            <% if (item.name.includes('VIP')) { %>
+                                                <li><i class="fas fa-check text-success me-2"></i>Полет на выживании</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>5 дополнительных домов</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>VIP чат и цвет ника</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Приоритетный вход</li>
+                                            <% } else if (item.name.includes('Premium')) { %>
+                                                <li><i class="fas fa-check text-success me-2"></i>Все привилегии VIP</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>10 дополнительных домов</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Команда /god</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Доступ к /kit premium</li>
+                                            <% } else if (item.name.includes('Elite')) { %>
+                                                <li><i class="fas fa-check text-success me-2"></i>Все привилегии Premium</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Безлимитные дома</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Команды /tp и /tphere</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Доступ к креативу</li>
+                                            <% } %>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="price-section text-center">
+                                        <div class="price mb-3">
+                                            <span class="h3 fw-bold text-warning"><%= item.price %>₽</span>
+                                            <small class="text-muted d-block">за 30 дней</small>
+                                        </div>
+                                        
+                                        <% if (typeof user !== 'undefined' && user) { %>
+                                            <button class="btn btn-warning btn-lg w-100" onclick="purchaseItem(<%= item.id %>, '<%= item.name %>', <%= item.price %>)">
+                                                <i class="fas fa-shopping-cart me-2"></i>Купить
+                                            </button>
+                                        <% } else { %>
+                                            <a href="/login" class="btn btn-outline-warning btn-lg w-100">
+                                                <i class="fas fa-sign-in-alt me-2"></i>Войти для покупки
+                                            </a>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+            
+            <!-- Currency -->
+            <div class="tab-pane fade" id="currency">
+                <div class="row text-center mb-4">
+                    <div class="col-12">
+                        <h2 class="fw-bold mb-3">💰 Игровая валюта</h2>
+                        <p class="text-muted">Покупайте монеты для торговли и покупок на сервере</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <% categories.currency.forEach(item => { %>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="product-card h-100 border rounded-3 shadow-sm text-center">
+                                <div class="product-header bg-success text-white p-4">
+                                    <i class="fas fa-coins fa-3x mb-3"></i>
+                                    <h5 class="fw-bold mb-0"><%= item.name %></h5>
+                                </div>
+                                
+                                <div class="product-body p-4">
+                                    <p class="text-muted mb-3"><%= item.description %></p>
+                                    
+                                    <div class="price mb-3">
+                                        <span class="h4 fw-bold text-success"><%= item.price %>₽</span>
+                                    </div>
+                                    
+                                    <% if (typeof user !== 'undefined' && user) { %>
+                                        <button class="btn btn-success w-100" onclick="purchaseItem(<%= item.id %>, '<%= item.name %>', <%= item.price %>)">
+                                            <i class="fas fa-shopping-cart me-2"></i>Купить
+                                        </button>
+                                    <% } else { %>
+                                        <a href="/login" class="btn btn-outline-success w-100">
+                                            <i class="fas fa-sign-in-alt me-2"></i>Войти
+                                        </a>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+            
+            <!-- Cases -->
+            <div class="tab-pane fade" id="cases">
+                <div class="row text-center mb-4">
+                    <div class="col-12">
+                        <h2 class="fw-bold mb-3">🎁 Донат кейсы</h2>
+                        <p class="text-muted">Откройте кейсы и получите случайные награды</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <% categories.case.forEach(item => { %>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="product-card h-100 border rounded-3 shadow-sm text-center">
+                                <div class="product-header bg-info text-white p-4">
+                                    <i class="fas fa-gift fa-3x mb-3"></i>
+                                    <h5 class="fw-bold mb-0"><%= item.name %></h5>
+                                </div>
+                                
+                                <div class="product-body p-4">
+                                    <p class="text-muted mb-3"><%= item.description %></p>
+                                    
+                                    <div class="case-contents mb-3">
+                                        <h6 class="fw-bold mb-2">Возможные награды:</h6>
+                                        <ul class="list-unstyled small">
+                                            <li><i class="fas fa-gem text-primary me-2"></i>Алмазы (32-64 шт.)</li>
+                                            <li><i class="fas fa-coins text-warning me-2"></i>Монеты (500-2000)</li>
+                                            <li><i class="fas fa-magic text-purple me-2"></i>Зачарованные предметы</li>
+                                            <li><i class="fas fa-star text-success me-2"></i>Редкие блоки</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="price mb-3">
+                                        <span class="h4 fw-bold text-info"><%= item.price %>₽</span>
+                                    </div>
+                                    
+                                    <% if (typeof user !== 'undefined' && user) { %>
+                                        <button class="btn btn-info w-100" onclick="purchaseItem(<%= item.id %>, '<%= item.name %>', <%= item.price %>)">
+                                            <i class="fas fa-shopping-cart me-2"></i>Купить кейс
+                                        </button>
+                                    <% } else { %>
+                                        <a href="/login" class="btn btn-outline-info w-100">
+                                            <i class="fas fa-sign-in-alt me-2"></i>Войти
+                                        </a>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+            
+            <!-- Privileges -->
+            <div class="tab-pane fade" id="privileges">
+                <div class="row text-center mb-4">
+                    <div class="col-12">
+                        <h2 class="fw-bold mb-3">⭐ Привилегии</h2>
+                        <p class="text-muted">Дополнительные возможности и команды</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <% categories.privilege.forEach(item => { %>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="product-card h-100 border rounded-3 shadow-sm">
+                                <div class="product-header bg-primary text-white p-4">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <i class="fas fa-star fa-2x"></i>
+                                        </div>
+                                        <div class="col">
+                                            <h5 class="fw-bold mb-1"><%= item.name %></h5>
+                                            <small class="opacity-75">Постоянная привилегия</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="product-body p-4">
+                                    <p class="text-muted mb-3"><%= item.description %></p>
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="h4 fw-bold text-primary mb-0"><%= item.price %>₽</span>
+                                        
+                                        <% if (typeof user !== 'undefined' && user) { %>
+                                            <button class="btn btn-primary" onclick="purchaseItem(<%= item.id %>, '<%= item.name %>', <%= item.price %>)">
+                                                <i class="fas fa-shopping-cart me-2"></i>Купить
+                                            </button>
+                                        <% } else { %>
+                                            <a href="/login" class="btn btn-outline-primary">
+                                                <i class="fas fa-sign-in-alt me-2"></i>Войти
+                                            </a>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+            
+            <!-- Other -->
+            <div class="tab-pane fade" id="other">
+                <div class="row text-center mb-4">
+                    <div class="col-12">
+                        <h2 class="fw-bold mb-3">📦 Разное</h2>
+                        <p class="text-muted">Дополнительные товары и услуги</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <% categories.other.forEach(item => { %>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="product-card h-100 border rounded-3 shadow-sm text-center">
+                                <div class="product-header bg-secondary text-white p-4">
+                                    <i class="fas fa-box fa-3x mb-3"></i>
+                                    <h5 class="fw-bold mb-0"><%= item.name %></h5>
+                                </div>
+                                
+                                <div class="product-body p-4">
+                                    <p class="text-muted mb-3"><%= item.description %></p>
+                                    
+                                    <div class="price mb-3">
+                                        <span class="h4 fw-bold text-secondary"><%= item.price %>₽</span>
+                                    </div>
+                                    
+                                    <% if (typeof user !== 'undefined' && user) { %>
+                                        <button class="btn btn-secondary w-100" onclick="purchaseItem(<%= item.id %>, '<%= item.name %>', <%= item.price %>)">
+                                            <i class="fas fa-shopping-cart me-2"></i>Купить
+                                        </button>
+                                    <% } else { %>
+                                        <a href="/login" class="btn btn-outline-secondary w-100">
+                                            <i class="fas fa-sign-in-alt me-2"></i>Войти
+                                        </a>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Payment Methods -->
+<section class="payment-methods bg-light py-5">
+    <div class="container">
+        <div class="row text-center mb-4">
+            <div class="col-12">
+                <h3 class="fw-bold mb-3">💳 Способы оплаты</h3>
+                <p class="text-muted">Мы принимаем различные способы оплаты</p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div class="payment-icons d-flex gap-3">
+                    <div class="payment-icon bg-white p-3 rounded shadow-sm">
+                        <i class="fab fa-cc-visa fa-2x text-primary"></i>
+                    </div>
+                    <div class="payment-icon bg-white p-3 rounded shadow-sm">
+                        <i class="fab fa-cc-mastercard fa-2x text-danger"></i>
+                    </div>
+                    <div class="payment-icon bg-white p-3 rounded shadow-sm">
+                        <i class="fab fa-paypal fa-2x text-info"></i>
+                    </div>
+                    <div class="payment-icon bg-white p-3 rounded shadow-sm">
+                        <i class="fas fa-mobile-alt fa-2x text-success"></i>
+                    </div>
+                    <div class="payment-icon bg-white p-3 rounded shadow-sm">
+                        <i class="fas fa-university fa-2x text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Purchase Modal -->
+<div class="modal fade" id="purchaseModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-shopping-cart me-2"></i>Подтверждение покупки
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="purchase-details">
+                    <h6>Товар: <span id="purchase-item-name"></span></h6>
+                    <h6>Цена: <span id="purchase-item-price"></span>₽</h6>
+                    <hr>
+                    <div class="form-group mb-3">
+                        <label for="payment-method" class="form-label">Способ оплаты:</label>
+                        <select class="form-select" id="payment-method">
+                            <option value="card">Банковская карта</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="qiwi">QIWI</option>
+                            <option value="yandex">Яндекс.Деньги</option>
+                        </select>
+                    </div>
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        После оплаты товар будет автоматически выдан на сервере в течение нескольких минут.
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                <button type="button" class="btn btn-success" id="confirm-purchase">
+                    <i class="fas fa-credit-card me-2"></i>Оплатить
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.shop-header {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.ribbon {
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    padding: 5px 40px;
+    font-size: 12px;
+    font-weight: bold;
+    transform: rotate(45deg);
+    z-index: 10;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.payment-icon:hover {
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
+}
+
+.text-purple {
+    color: #6f42c1 !important;
+}
+
+.nav-pills .nav-link {
+    border-radius: 20px;
+    margin: 0 5px;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #0d6efd;
+}
+</style>
+
+<script>
+let currentItemId = null;
+
+function purchaseItem(itemId, itemName, itemPrice) {
+    currentItemId = itemId;
+    document.getElementById('purchase-item-name').textContent = itemName;
+    document.getElementById('purchase-item-price').textContent = itemPrice;
+    
+    const modal = new bootstrap.Modal(document.getElementById('purchaseModal'));
+    modal.show();
+}
+
+document.getElementById('confirm-purchase').addEventListener('click', function() {
+    if (!currentItemId) return;
+    
+    const paymentMethod = document.getElementById('payment-method').value;
+    
+    fetch('/purchase', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            item_id: currentItemId,
+            payment_method: paymentMethod
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showToast(data.message, 'success');
+            bootstrap.Modal.getInstance(document.getElementById('purchaseModal')).hide();
+        } else {
+            showToast(data.error || 'Ошибка при покупке', 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showToast('Ошибка при обработке покупки', 'error');
+    });
+});
+</script>
+
+<%- include('partials/footer') %>
