@@ -1,0 +1,136 @@
+# WorldGuard Configuration
+
+# Общие настройки
+general:
+  # Включить WorldGuard
+  enable: true
+  # Автоматически создавать регион __global__
+  auto-create-global-region: true
+  # Защищать спавн от гриферства
+  spawn-protection: true
+
+# Настройки регионов
+regions:
+  # Максимальное количество регионов на игрока
+  max-regions-per-player: 7
+  # Максимальный размер региона для обычных игроков
+  max-region-size: 10000
+  # Максимальный размер региона для VIP игроков
+  max-region-size-vip: 50000
+  # Включить наследование флагов
+  inherit-parent-flags: true
+
+# Защита от гриферства
+protection:
+  # Защита от взрывов
+  block-tnt: true
+  block-tnt-block-damage: true
+  block-lighter: false
+  
+  # Защита от огня
+  disable-fire-spread: true
+  disable-lava-fire-spread: true
+  disable-lightning-strike-fire: true
+  
+  # Защита от воды и лавы
+  block-water-flow: false
+  block-lava-flow: false
+  
+  # Защита от мобов
+  block-creeper-explosions: true
+  block-creeper-block-damage: true
+  block-wither-explosions: true
+  block-wither-block-damage: true
+  block-wither-skull-explosions: true
+  block-enderdragon-block-damage: true
+  block-enderdragon-portal-creation: false
+  block-fireball-explosions: true
+  block-fireball-block-damage: true
+
+# Физика
+physics:
+  # Отключить физику песка и гравия
+  no-physics-gravel: false
+  no-physics-sand: false
+  
+  # Отключить рост растений
+  vine-like-rope-ladders: false
+  allow-portal-anywhere: false
+  disable-water-damage-blocks: []
+
+# Настройки игроков
+player:
+  # Защита от урона при входе
+  invincibility: 3
+  # Защита от падения при входе  
+  fall-damage: 3
+  # Лечение при входе
+  heal-delay: 0
+  heal-amount: 0
+  
+  # Настройки телепортации
+  teleport-to-home: false
+  cancel-chat-without-recipients: true
+  
+# Мобы
+mobs:
+  # Блокировать спавн мобов
+  block-creature-spawn: []
+  block-animal-spawn: []
+  
+  # Защита животных
+  anti-wolf-dumbness: false
+  allow-tamed-spawns: true
+  
+  # Настройки зомби
+  disable-enderman-griefing: false
+  disable-snowman-trails: false
+  block-painting-destroy: false
+  block-item-frame-destroy: false
+
+# Погода
+weather:
+  # Отключить изменение погоды
+  prevent-lightning-strike-blocks: []
+  disable-thunder: false
+  disable-weather: false
+  disable-pig-zombification: false
+  disable-powered-creepers: false
+
+# Команды
+commands:
+  # Включить команды WorldGuard
+  enable: true
+  # Команды для обычных игроков
+  player-commands: ['region info', 'region list']
+  # Команды для модераторов  
+  moderator-commands: ['region flag', 'region addmember', 'region removemember']
+
+# Уведомления
+notifications:
+  # Уведомления при входе в регион
+  entry-deny-message: '§cВы не можете войти в этот регион!'
+  exit-deny-message: '§cВы не можете выйти из этого региона!'
+  # Уведомления о защите
+  protection-deny-message: '§cЭта территория защищена!'
+
+# Флаги по умолчанию
+default-flags:
+  # Глобальные флаги
+  __global__:
+    build: true
+    interact: true
+    use: true
+    damage-animals: false
+    chest-access: false
+    vehicle-place: false
+    vehicle-destroy: false
+  
+  # Флаги для спавна
+  spawn:
+    pvp: false
+    build: false
+    interact: true
+    use: true
+    greeting: '§aДобро пожаловать на спавн!'
+    farewell: '§eДо свидания!'

@@ -1,0 +1,26 @@
+# Миры для Minecraft сервера
+
+## Основные миры:
+- world/ - Обычный мир (создастся автоматически при первом запуске)
+- world_nether/ - Нижний мир (создастся автоматически)
+- world_the_end/ - Мир Края (создастся автоматически)
+
+## Дополнительные миры:
+- spawn/ - Спавн сервера с красивыми постройками
+- pvp/ - Арена для PvP боев
+- creative/ - Креативный мир для строительства
+- games/ - Мир для мини-игр
+
+## Как добавить готовые миры:
+1. Скачайте мир с PlanetMinecraft или других сайтов
+2. Распакуйте в папку worlds/
+3. Добавьте мир в server.properties или используйте Multiverse
+4. Перезапустите сервер
+
+## Рекомендуемые миры:
+- Modern City - https://www.planetminecraft.com/project/modern-city/
+- Medieval Castle - https://www.planetminecraft.com/project/medieval-castle/
+- PvP Arena - https://www.planetminecraft.com/project/pvp-arena/
+- Spawn Hub - https://www.planetminecraft.com/project/spawn-hub/
+
+Миры будут созданы автоматически при первом запуске сервера.

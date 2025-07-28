@@ -1,0 +1,61 @@
+# WorldEdit Configuration
+
+# Лимиты для обычных игроков
+limits:
+  # Максимальное количество блоков для изменения за раз
+  default: 1000000
+  # Максимальное количество блоков для VIP игроков  
+  vip: 5000000
+  # Максимальное количество блоков для админов
+  admin: -1
+
+# Настройки инструментов
+tools:
+  # Инструмент для выделения (по умолчанию деревянный топор)
+  wand-item: minecraft:wooden_axe
+  # Инструмент навигации
+  nav-wand-item: minecraft:compass
+  # Максимальная дистанция для команд
+  max-super-pickaxe-size: 5
+
+# Настройки истории команд
+history:
+  # Размер истории для отмены команд
+  size: 15
+  # Время жизни истории в минутах
+  expiration: 10
+
+# Настройки схем
+schematics:
+  # Папка для сохранения схем
+  save-dir: schematics
+  # Формат схем по умолчанию
+  format: sponge
+
+# Разрешения
+permissions:
+  # Разрешить использование команд без прав
+  use-in-creative: true
+  # Разрешить обход защиты регионов
+  region-bypass: false
+
+# Настройки производительности
+performance:
+  # Включить быстрый режим
+  fast-mode: false
+  # Максимальное время выполнения операции (мс)
+  max-calculation-timeout: 300000
+
+# Экспериментальные функции
+experimental:
+  # Включить новые функции
+  enable-new-features: true
+  # Использовать параллельную обработку
+  parallel-processing: true
+
+# Логирование
+logging:
+  # Логировать команды WorldEdit
+  log-commands: true
+  # Файл для логов
+  file: logs/worldedit.log
