@@ -1,0 +1,10 @@
+PK                  META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Main-Class: com.palmergames.bukkit.towny.Towny
+Implementation-Title: Towny
+Implementation-Version: 0.100.3.0
+Built-By: ElgarL
+
+# Towny v0.100.3.0 - Система городов и наций
+# Скачайте настоящий с: https://www.spigotmc.org/resources/towny-advanced.72694/
+# Размер реального файла: ~8MB

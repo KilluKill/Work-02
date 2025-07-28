@@ -1,0 +1,10 @@
+PK                  META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Main-Class: net.milkbowl.vault.Vault
+Implementation-Title: Auctions
+Implementation-Version: 3.2.1
+Built-By: Klugemonkey
+
+# Auctions v3.2.1 - Система аукционов
+# Скачайте настоящий с: https://www.spigotmc.org/resources/auctions.61836/
+# Размер реального файла: ~1MB

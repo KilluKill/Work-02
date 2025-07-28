@@ -1,0 +1,10 @@
+PK                  META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Main-Class: com.dre.brewery.Brewery
+Implementation-Title: Brewery
+Implementation-Version: 3.3.1
+Built-By: Milan
+
+# Brewery v3.3.1 - Система пивоварения и алкоголя
+# Скачайте настоящий с: https://www.spigotmc.org/resources/brewery.3082/
+# Размер реального файла: ~2MB

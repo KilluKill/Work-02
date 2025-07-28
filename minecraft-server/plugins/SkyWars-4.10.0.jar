@@ -1,0 +1,11 @@
+PK                  META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Main-Class: net.daboross.bukkitdev.skywars.SkyWarsPlugin
+Implementation-Title: SkyWars
+Implementation-Version: 4.10.0
+Built-By: Daboross
+
+# SkyWars v4.10.0 - Готовый плагин
+# Это симуляция реального jar файла  
+# Скачайте настоящий с: https://www.spigotmc.org/resources/skywars.167/
+# Размер реального файла: ~8MB

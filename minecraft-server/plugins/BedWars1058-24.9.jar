@@ -1,0 +1,11 @@
+PK                  META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Main-Class: com.andrei1058.bedwars.BedWars
+Implementation-Title: BedWars1058
+Implementation-Version: 24.9
+Built-By: Andrei1058
+
+# BedWars1058 v24.9 - Готовый плагин
+# Это симуляция реального jar файла
+# Скачайте настоящий с: https://www.spigotmc.org/resources/bedwars1058.50942/
+# Размер реального файла: ~15MB

@@ -1,0 +1,10 @@
+PK                  META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Main-Class: net.brcdev.shopgui.ShopGuiPlusPlugin
+Implementation-Title: ShopGUIPlus
+Implementation-Version: 1.101.0
+Built-By: brc
+
+# ShopGUIPlus v1.101.0 - Магазин с графическим интерфейсом
+# Скачайте настоящий с: https://www.spigotmc.org/resources/shopgui.6515/
+# Размер реального файла: ~2MB

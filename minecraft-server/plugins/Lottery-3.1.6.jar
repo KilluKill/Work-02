@@ -1,0 +1,10 @@
+PK                  META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Main-Class: net.erbros.lottery.Lottery
+Implementation-Title: Lottery
+Implementation-Version: 3.1.6
+Built-By: Erbros
+
+# Lottery v3.1.6 - Лотерея с джекпотом
+# Скачайте настоящий с: https://www.spigotmc.org/resources/lottery.476/
+# Размер реального файла: ~500KB

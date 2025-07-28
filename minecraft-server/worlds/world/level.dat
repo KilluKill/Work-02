@@ -1,0 +1,21 @@
+NBT_DATA_WORLD_LEVEL_DAT_SIMULATION
+
+# Это симуляция файла level.dat для основного мира
+# При первом запуске сервера Paper автоматически создаст настоящие миры
+# Размер реального мира: 50-200MB в зависимости от исследованной территории
+
+WorldName: world
+GameType: 0
+Difficulty: 2
+DifficultyLocked: false
+Time: 1000
+DayTime: 1000
+SpawnX: 0
+SpawnY: 64  
+SpawnZ: 0
+allowCommands: true
+GameRules:
+  doDaylightCycle: true
+  doMobSpawning: true
+  keepInventory: false
+  mobGriefing: true

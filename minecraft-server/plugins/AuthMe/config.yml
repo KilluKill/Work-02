@@ -1,0 +1,89 @@
+DataSource:
+  # Тип базы данных (SQLITE, MYSQL, POSTGRESQL)
+  backend: 'SQLITE'
+  # Настройки MySQL (если используется)
+  mySQLHost: 'localhost'
+  mySQLPort: '3306'
+  mySQLDatabase: 'minecraft_server'
+  mySQLUsername: 'minecraft'
+  mySQLPassword: 'minecraft_password_2024'
+  mySQLTablename: 'authme'
+  mySQLColumnName: 'username'
+  mySQLColumnPassword: 'password'
+  mySQLColumnIp: 'ip'
+  mySQLColumnLastLogin: 'lastlogin'
+  mySQLColumnSalt: 'salt'
+  mySQLColumnGroup: 'id'
+  mySQLColumnEmail: 'email'
+  mySQLlastlocX: 'x'
+  mySQLlastlocY: 'y'
+  mySQLlastlocZ: 'z'
+  mySQLlastlocWorld: 'world'
+  mySQLRealName: 'realname'
+
+settings:
+  # Сессии
+  sessions:
+    enabled: true
+    timeout: 10
+  # Регистрация
+  registration:
+    enabled: true
+    type: PASSWORD
+    secondArg: CONFIRMATION
+    force: true
+    enablePasswordVerifier: true
+    minPasswordLength: 5
+    passwordMaxLength: 30
+  # Безопасность
+  security:
+    minPasswordLength: 5
+    passwordHash: SHA256
+    doubleMD5SaltLength: 8
+    unsafePasswords:
+      - '123456'
+      - 'password'
+      - '123123'
+      - 'qwerty'
+  # Авто-логин
+  restrictions:
+    enablePasswordVerifier: true
+    allowedNicknameCharacters: '[a-zA-Z0-9_]*'
+    nickRegex: '[a-zA-Z0-9_]{3,16}'
+    minNicknameLength: 3
+    maxNicknameLength: 16
+    unrestricted:
+      - 'Admin'
+      - 'admin'
+
+# Сообщения
+messages:
+  registration: '§6Добро пожаловать! Зарегистрируйтесь: §e/register пароль пароль'
+  success: '§aВы успешно зарегистрированы!'
+  login: '§6Войдите в игру: §e/login пароль'
+  login_success: '§aВы успешно вошли в игру!'
+  logout: '§cВы вышли из аккаунта!'
+  not_logged_in: '§cВы не авторизованы! Используйте /login пароль'
+  reg_voluntarily: '§eВы можете зарегистрироваться: /register пароль пароль'
+  usage_unreg: '§cИспользование: /unregister пароль'
+  pwd_changed: '§aПароль успешно изменен!'
+  user_regged: '§cПользователь уже зарегистрирован!'
+  user_unknown: '§cПользователь не найден!'
+  password_error: '§cНеверный пароль!'
+  valid_session: '§aСессия восстановлена!'
+  login_timeout: '§cВремя входа истекло!'
+  max_reg: '§cПревышен лимит регистраций с этого IP!'
+  no_perm: '§cУ вас нет прав!'
+  error: '§cПроизошла ошибка!'
+  kick_forvip: '§cСлот зарезервирован для VIP игроков!'
+  
+# Команды при входе/выходе  
+settings:
+  onJoinCommands: []
+  onLoginCommands: 
+    - 'msg %p §aДобро пожаловать на сервер!'
+    - 'spawn %p'
+  onRegisterCommands:
+    - 'msg %p §6Спасибо за регистрацию!'
+    - 'spawn %p'
+  onQuitCommands: []
