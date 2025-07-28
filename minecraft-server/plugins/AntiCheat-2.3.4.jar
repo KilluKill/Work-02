@@ -1,0 +1,10 @@
+PK                  META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Main-Class: net.gravitydevelopment.anticheat.AntiCheat
+Implementation-Title: AntiCheat
+Implementation-Version: 2.3.4
+Built-By: Gravity
+
+# AntiCheat v2.3.4 - Защита от читеров
+# Скачайте настоящий с: https://www.spigotmc.org/resources/anticheat.1368/
+# Размер реального файла: ~1.5MB

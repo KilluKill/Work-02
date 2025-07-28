@@ -1,0 +1,10 @@
+PK                  META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Main-Class: io.lumine.mythic.bukkit.MythicBukkit
+Implementation-Title: MythicMobs
+Implementation-Version: 5.6.1
+Built-By: Lumine
+
+# MythicMobs v5.6.1 - Кастомные мобы с уникальными способностями
+# Скачайте настоящий с: https://www.spigotmc.org/resources/mythicmobs.5702/
+# Размер реального файла: ~12MB
