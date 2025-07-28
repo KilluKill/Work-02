@@ -1,0 +1,10 @@
+PK                  META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Main-Class: github.scarsz.discordsrv.DiscordSRV
+Implementation-Title: DiscordSRV
+Implementation-Version: 1.27.0
+Built-By: Scarsz
+
+# DiscordSRV v1.27.0 - Интеграция с Discord
+# Скачайте настоящий с: https://www.spigotmc.org/resources/discordsrv.18494/
+# Размер реального файла: ~6MB

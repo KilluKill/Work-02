@@ -1,0 +1,10 @@
+PK                  META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Main-Class: net.coreprotect.CoreProtect
+Implementation-Title: CoreProtect
+Implementation-Version: 22.4
+Built-By: Intelli
+
+# CoreProtect v22.4 - Логирование и откат действий игроков
+# Скачайте настоящий с: https://www.spigotmc.org/resources/coreprotect.8631/
+# Размер реального файла: ~2MB

@@ -1,0 +1,10 @@
+PK                  META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Main-Class: me.minebuilders.clearlag.Clearlag
+Implementation-Title: ClearLag
+Implementation-Version: 3.2.2
+Built-By: bob7l
+
+# ClearLag v3.2.2 - Очистка предметов и мобов для уменьшения лагов
+# Скачайте настоящий с: https://www.spigotmc.org/resources/clearlagg.68271/
+# Размер реального файла: ~800KB

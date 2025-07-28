@@ -1,0 +1,10 @@
+PK                  META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Main-Class: org.dynmap.DynmapPlugin
+Implementation-Title: Dynmap
+Implementation-Version: 3.7
+Built-By: mikeprimm
+
+# Dynmap v3.7 - Веб-карта сервера в реальном времени
+# Скачайте настоящий с: https://www.spigotmc.org/resources/dynmap.274/
+# Размер реального файла: ~15MB
